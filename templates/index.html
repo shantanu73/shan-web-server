@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <title>SHAN Web Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+		
+	<div class="container-fluid text-center">    
+		<div class="row content"
+		style="height: 100%;">
+			<div class="col-sm-2 sidenav">
+			</div>
+			<div class="col-sm-8 text-left"> 
+				<h2>Welcome {{ user.get("name") }}!</h2>
+				<hr>
+                                <form name="elevationForm" id="elevationForm" method="post">
+                                        Select the Admin group and time(in hours) to elevate:
+                                        <select name="elevationGroup" id="elevationGroup">
+                                        {% for group in admin_groups %}
+                                            <option value="{{ group }}" >{{ group }}</option>
+                                        {% endfor %}
+                                        </select>
+                                        <select name="elevationTime" id="elevationTime">
+                                        {% for time in elevation_times %}
+                                            <option value="{{ time }}" >{{ time }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    <input type="submit" value="ELEVATE">
+                                </form>
+			</div>
+			<div class="col-sm-2 sidenav">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

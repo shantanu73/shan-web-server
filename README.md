@@ -113,25 +113,38 @@ Refer to this [DOCUMENT](/Docs/Azure-app-registration.pdf)
     ```
 
 
-7)  Open port **443** to run application in https, using the following commands:-
+7)  Update **~/.bashrc** file to set alias for python3.6 permanantly :-
+
+    a) Open **~/.bashrc** file using the following command :
+       ```bash
+       $ vi ~/.bashrc
+       ```
+
+    b) Edit the following content at the end of the file :
+       ```bash
+       alias python='/opt/rh/rh-python36/root/bin/python3.6'
+       ```
+
+
+8)  Open port **443** to run application in https, using the following commands:-
     ```bash
     $ /opt/shan-web-server/Scripts/open_https.sh
     ```
 
 
-8)  Install and configure **authbind** for **443** port, using the following commands:-
+9)  Install and configure **authbind** for **443** port, using the following commands:-
     ```bash
     $ /opt/shan-web-server/Scripts/auth_bind.sh
     ```
 
 
-9)  Create a new user and become owner of **authbind port 443** & **shan-web-server** directory, using the following commands:-
+10) Create a new user and become owner of **authbind port 443** & **shan-web-server** directory, using the following commands:-
     ```bash
     $ /opt/shan-web-server/Scripts/new_user.sh
     ```
 
 
-10) Now, create a new service file for our WEB server :-
+11) Now, create a new service file for our WEB server :-
     ```bash
     $ vi /lib/systemd/system/shan.service
     ```
